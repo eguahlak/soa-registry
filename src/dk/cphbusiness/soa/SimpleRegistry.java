@@ -14,7 +14,7 @@ public class SimpleRegistry implements RegistryContract {
   private Comparator<ServiceContract> priorityComparator =
       new ServicePriorityComparator();
   private Map<Class, List<ServiceContract>> contracts = 
-      new HashMap<Class, List<ServiceContract>>();
+      new HashMap<>();
 
   @Override
   public <C extends ServiceContract> void register(
@@ -22,7 +22,7 @@ public class SimpleRegistry implements RegistryContract {
       ) {
     List<ServiceContract> services = contracts.get(contract);
     if (services == null) {
-      services = new ArrayList<ServiceContract>();
+      services = new ArrayList<>();
       contracts.put(contract, services);
       }
     services.add(service);
